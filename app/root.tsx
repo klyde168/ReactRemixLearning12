@@ -1,49 +1,38 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import NavBar from "~/components/NavBar";
+import tailwindStyles from "~/tailwind.css?url";
 
-import "./tailwind.css";
+export const meta: MetaFunction = () => {
+  return [
+    { title: "New Remix App" },
+    { name: "description", content: "Welcome to Remix!" },
+  ];
+};
 
-export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
-
-export function Layout({ children }: { children: React.ReactNode }) {
+export default function Root() {
   return (
-    <html lang="en">
+    <html lang="zh-TW">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <link rel="stylesheet" href={tailwindStyles} />
       </head>
-      <body>
-        {children}
+      <body className="h-screen flex">
+        {/* 導航欄 */}
+        <NavBar />
+
+        {/* 內容顯示區域 */}
+        <div className="flex-1 p-4">
+          <h1 className="text-2xl font-bold mb-4">Content Area</h1>
+          <Outlet />
+        </div>
         <ScrollRestoration />
         <Scripts />
+        <LiveReload />
       </body>
     </html>
-  );
-}
-
-export default function App() {
-  return (
-    <Layout>
-      <Outlet />
-    </Layout>
   );
 }

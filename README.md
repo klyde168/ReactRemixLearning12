@@ -1,43 +1,3 @@
-# Welcome to Remix!
-
-- 📖 [Remix docs](https://remix.run/docs)
-
-## Development
-
-Run the dev server:
-
-```shellscript
-npm run dev
-```
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
 # ReactRemixLearning
 
 ## 專案描述
@@ -47,3 +7,14 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 ## 備註
 
 第1天：專案初始化與環境設置
+第2天：導航欄與路由基礎
+
+## 功能
+
+- 實現了二欄式佈局，左欄為靜態導航欄，右欄為內容顯示區域。
+- 導航欄包含首頁、關於、服務和聯絡連結。
+- 點擊導航連結後，右欄會顯示對應的內容。
+
+## AI提示詞
+
+請使用Remix框架初始化一個Web專案，包含React、Tailwind CSS，並設計兩欄式佈局（左欄為導航，右欄為內容顯示區域）。提供完整的專案結構與index.html、app/routes/_index.tsx、app/root.tsx檔案內容。使用CDN引入React與Tailwind CSS
