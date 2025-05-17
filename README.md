@@ -32,6 +32,10 @@
 ### 第6天：表單輸入與驗證
 
 - 右欄添加表單，包含輸入欄位與基本驗證（例如必填） (app/components/Form.tsx, app/routes/form.tsx)。
+
+### 第7天：API基礎與資料獲取
+
+- 右欄顯示從公開API（例如JSONPlaceholder）獲取的資料 (app/routes/api.tsx, app/components/UserList.tsx)。
 ## AI提示詞
 
 ### 第1天：專案初始化與環境設置
@@ -53,3 +57,7 @@
 ### 第6天：表單輸入與驗證
 
 在Remix專案的右欄實現一個表單組件，包含姓名、電子郵件欄位，並進行必填驗證。提供app/components/Form.tsx與app/routes/form.tsx，確保使用Remix表單處理與Tailwind CSS美化
+
+### 第7天：API基礎與資料獲取
+
+在Remix專案中，於右欄顯示從JSONPlaceholder API獲取的使用者清單。提供app/routes/api.tsx與app/components/UserList.tsx，使用Remix的loader函數處理資料獲取，並以Tailwind CSS展示清單

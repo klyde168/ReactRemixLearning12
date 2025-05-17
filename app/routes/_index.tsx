@@ -5,6 +5,7 @@ import ContentArea from "~/components/ContentArea";
 import { useState, useEffect } from "react";
 import Counter from "~/components/Counter";
 import Form from "~/components/Form";
+import UserList from "~/components/UserList";
 
 export const meta: MetaFunction = () => {
   return [
@@ -41,6 +42,9 @@ export default function Index() {
           break;
         case 'form':
           newContent = <Form />;
+          break;
+        case 'api':
+          newContent = <p>請直接訪問 API 頁面以查看資料。</p>;
           break;
         default:
           newContent = <p>Unknown route.</p>;
