@@ -23,6 +23,11 @@
 - 設計右欄內容區域，根據左欄導航點擊顯示對應功能頁面 (app/components/ContentArea.tsx)。
 - 支持功能疊加展示，新功能添加至右欄。
 - 使用Tailwind CSS確保UI一致性。
+
+### 第5天：簡單計數器功能
+
+- 在首頁新增簡單計數器功能，讓使用者可以增加或減少計數 (app/components/Counter.tsx)。
+- 計數器元件已整合至首頁內容中 (app/routes/_index.tsx)。
 ## AI提示詞
 
 ### 第1天：專案初始化與環境設置
@@ -36,3 +41,7 @@
 ### 第4天：右欄功能疊加顯示
 
 在Remix專案中，設計右欄內容區域，根據左欄導航點擊顯示對應功能頁面，並支持功能疊加展示（新功能添加至右欄）。提供app/components/ContentArea.tsx與相關路由邏輯，使用Tailwind CSS確保UI一致性
+
+### 第5天：簡單計數器功能
+
+在Remix專案中，於首頁新增簡單計數器功能，讓使用者可以增加或減少計數。提供app/components/Counter.tsx檔案，並確保計數器正確顯示於首頁內容中 (app/routes/_index.tsx)

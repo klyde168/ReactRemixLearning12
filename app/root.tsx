@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
-import NavBar from "~/components/NavBar";
 import tailwindStyles from "~/tailwind.css?url";
+import NavBar from "~/components/NavBar";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,17 +21,11 @@ export default function Root() {
         <link rel="stylesheet" href={tailwindStyles} />
       </head>
       <body className="h-screen flex">
-        {/* 導航欄 */}
-        <NavBar />
-
-        {/* 內容顯示區域 */}
-        <div className="flex-1 p-4">
-          <h1 className="text-2xl font-bold mb-4">Content Area</h1>
-          <Outlet />
-        </div>
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+  <NavBar />
+  <Outlet />
+  <ScrollRestoration />
+  <Scripts />
+  <LiveReload />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ import { Outlet, useLoaderData, useSearchParams } from "@remix-run/react";
 import NavBar from "~/components/NavBar";
 import ContentArea from "~/components/ContentArea";
 import { useState, useEffect } from "react";
+import Counter from "~/components/Counter";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,7 +22,12 @@ export default function Index() {
       let newContent;
       switch (route) {
         case '/':
-          newContent = <p>Welcome to the homepage!</p>;
+          newContent = (
+            <>
+              <p>Welcome to the homepage!</p>
+              <Counter />
+            </>
+          );
           break;
         case 'about':
           newContent = <p>This is the about page.</p>;
@@ -35,20 +41,19 @@ export default function Index() {
         default:
           newContent = <p>Unknown route.</p>;
       }
-      setContent(prev => [...prev, newContent]);
+      setContent(prev => [newContent]);
     }
   }, [searchParams]);
 
   return (
     <div className="h-screen flex bg-gray-900 text-white">
       {/* 導航欄 */}
-      
-
+   
       {/* 內容顯示區域 */}
       <div className="flex-1 p-4 bg-gray-800">
-        {content.map((c, i) => (
-          <ContentArea key={i}>{c}</ContentArea>
-        ))}
+          {content.map((c, i) => (
+            <ContentArea key={i}>{c}</ContentArea>
+          ))}
         <Outlet />
       </div>
     </div>
