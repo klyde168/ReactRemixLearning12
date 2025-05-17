@@ -6,9 +6,9 @@ export const meta: MetaFunction = () => {
 
 export default function Services() {
   return (
-    <>
-      <h1>Services</h1>
-      <p>This is the services page.</p>
-    </>
+    <div className="flex-1 p-4 bg-gray-800 text-white">
+      <h1 className="text-3xl font-bold mb-6">服務</h1>
+      <p>這是服務頁面。</p>
+    </div>
   );
 }

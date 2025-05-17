@@ -4,6 +4,7 @@ import NavBar from "~/components/NavBar";
 import ContentArea from "~/components/ContentArea";
 import { useState, useEffect } from "react";
 import Counter from "~/components/Counter";
+import Form from "~/components/Form";
 
 export const meta: MetaFunction = () => {
   return [
@@ -37,6 +38,9 @@ export default function Index() {
           break;
         case 'contact':
           newContent = <p>This is the contact page.</p>;
+          break;
+        case 'form':
+          newContent = <Form />;
           break;
         default:
           newContent = <p>Unknown route.</p>;

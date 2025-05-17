@@ -28,6 +28,10 @@
 
 - 在首頁新增簡單計數器功能，讓使用者可以增加或減少計數 (app/components/Counter.tsx)。
 - 計數器元件已整合至首頁內容中 (app/routes/_index.tsx)。
+
+### 第6天：表單輸入與驗證
+
+- 右欄添加表單，包含輸入欄位與基本驗證（例如必填） (app/components/Form.tsx, app/routes/form.tsx)。
 ## AI提示詞
 
 ### 第1天：專案初始化與環境設置
@@ -45,3 +49,7 @@
 ### 第5天：簡單計數器功能
 
 在Remix專案中，於首頁新增簡單計數器功能，讓使用者可以增加或減少計數。提供app/components/Counter.tsx檔案，並確保計數器正確顯示於首頁內容中 (app/routes/_index.tsx)
+
+### 第6天：表單輸入與驗證
+
+在Remix專案的右欄實現一個表單組件，包含姓名、電子郵件欄位，並進行必填驗證。提供app/components/Form.tsx與app/routes/form.tsx，確保使用Remix表單處理與Tailwind CSS美化

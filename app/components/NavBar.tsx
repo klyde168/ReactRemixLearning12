@@ -53,6 +53,16 @@ export default function NavBar() {
             聯絡
           </button>
         </li>
+        <li>
+          <button
+            onClick={() => handleClick("form")}
+            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
+              searchParams.get('route') === "form" ? "bg-blue-700" : ""
+            }`}
+          >
+            表單
+          </button>
+        </li>
       </ul>
     </nav>
   );
