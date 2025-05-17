@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "@remix-run/react";
 
-export default function Form() {
+export default function CreateUser({ onCreate }: { onCreate: (user: { name: string; email: string }) => Promise<void> }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const navigate = useNavigate();
 
   /* 表單驗證函數，檢查姓名和電子郵件欄位是否符合要求 */
   const validateForm = () => {
@@ -15,21 +17,20 @@ export default function Form() {
     return Object.keys(tempErrors).length === 0;
   };
 
-  /* 表單提交處理函數，驗證通過後顯示成功訊息並重置欄位 */
-  const handleSubmit = (e: React.FormEvent) => {
+  /* 表單提交處理函數，驗證通過後呼叫 onCreate 函數並導航到資料庫頁面 */
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      alert("表單提交成功");
-      setName("");
-      setEmail("");
+      await onCreate({ name, email });
+      navigate('/database');
     }
   };
 
   return (
-    /* 聯絡表單，使用深灰色背景和白色文字，設置最大寬度 */
+    /* 用戶創建表單，使用深灰色背景和白色文字，設置最大寬度 */
     <form onSubmit={handleSubmit} className="bg-gray-700 p-6 rounded-lg shadow-md w-full max-w-md">
       {/* 表單標題 */}
-      <h2 className="text-2xl font-bold mb-4 text-white">聯絡表單</h2>
+      <h2 className="text-2xl font-bold mb-4 text-white">創建用戶</h2>
       {/* 姓名輸入欄位 */}
       <div className="mb-4">
         <label htmlFor="name" className="block text-white mb-1">姓名</label>
@@ -56,7 +57,7 @@ export default function Form() {
       </div>
       {/* 提交按鈕 */}
       <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
-        提交
+        創建
       </button>
     </form>
   );

@@ -56,7 +56,8 @@ export default function Index() {
   return (
     <div className="h-screen flex bg-gray-900 text-white">
       {/* 導航欄 */}
-   
+      <NavBar />
+      
       {/* 內容顯示區域 */}
       <div className="flex-1 p-4 bg-gray-800">
           {content.map((c, i) => (

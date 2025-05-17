@@ -1,0 +1,20 @@
+// 這是 Prisma 模型檔案，用於定義資料庫結構
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 使用者模型，定義資料庫中的用戶表結構
+model User {
+  // 自動遞增的唯一識別碼
+  id       Int     @id @default(autoincrement())
+  // 使用者姓名
+  name     String
+  // 使用者電子郵件地址，必須是唯一的
+  email    String  @unique
+}

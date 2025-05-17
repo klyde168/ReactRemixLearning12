@@ -36,6 +36,14 @@
 ### 第7天：API基礎與資料獲取
 
 - 右欄顯示從公開API（例如JSONPlaceholder）獲取的資料 (app/routes/api.tsx, app/components/UserList.tsx)。
+
+### 第8天：Prisma與資料庫設置
+
+- 設置Prisma ORM，連接到SQLite資料庫，初始化用戶表 (prisma/schema.prisma)。
+
+### 第9天：用戶資料CRUD - 創建
+
+- 右欄實現用戶創建功能，保存到資料庫 (app/routes/users/create.tsx, app/components/CreateUser.tsx)。
 ## AI提示詞
 
 ### 第1天：專案初始化與環境設置
@@ -61,3 +69,11 @@
 ### 第7天：API基礎與資料獲取
 
 在Remix專案中，於右欄顯示從JSONPlaceholder API獲取的使用者清單。提供app/routes/api.tsx與app/components/UserList.tsx，使用Remix的loader函數處理資料獲取，並以Tailwind CSS展示清單
+
+### 第8天：Prisma與資料庫設置
+
+在Remix專案中配置Prisma ORM，連接到SQLite資料庫，創建用戶表（包含id、name、email欄位）。提供prisma/schema.prisma與初始化腳本，確保與Remix整合並更新README.md
+
+### 第9天：用戶資料CRUD - 創建
+
+在Remix專案的右欄添加用戶創建表單，透過Prisma將資料保存到SQLite資料庫。提供app/routes/users/create.tsx與app/components/CreateUser.tsx，確保表單驗證與Tailwind CSS美化
