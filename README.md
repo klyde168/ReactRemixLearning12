@@ -24,6 +24,11 @@
 - 導航欄包含首頁、關於、服務和聯絡連結 (app/components/NavBar.tsx)。
 - 點擊導航連結後，右欄會顯示對應的內容 (app/routes/about.tsx, app/routes/services.tsx, app/routes/contact.tsx)。
 
+### 第4天：右欄功能疊加顯示
+
+- 設計右欄內容區域，根據左欄導航點擊顯示對應功能頁面 (app/components/ContentArea.tsx)。
+- 支持功能疊加展示，新功能添加至右欄。
+- 使用Tailwind CSS確保UI一致性。
 ## AI提示詞
 
 ### 第1天：專案初始化與環境設置
@@ -33,3 +38,7 @@
 ### 第2天：導航欄與路由基礎
 
 在Remix專案中，於左欄實現靜態導航清單（包含首頁、關於等連結），右欄顯示對應路由內容。提供app/routes/_index.tsx與app/components/NavBar.tsx檔案，確保路由正確切換並使用Tailwind CSS美化導航
+
+### 第4天：右欄功能疊加顯示
+
+在Remix專案中，設計右欄內容區域，根據左欄導航點擊顯示對應功能頁面，並支持功能疊加展示（新功能添加至右欄）。提供app/components/ContentArea.tsx與相關路由邏輯，使用Tailwind CSS確保UI一致性

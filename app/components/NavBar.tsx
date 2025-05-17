@@ -1,51 +1,57 @@
-import { Link, useLocation } from "@remix-run/react";
+import { Link, useLocation, useNavigate, useSearchParams } from "@remix-run/react";
 
 export default function NavBar() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const handleClick = (route: string) => {
+    navigate(`?${new URLSearchParams({ ...Object.fromEntries(searchParams), route }).toString()}`);
+  };
 
   return (
     <nav className="bg-gradient-to-r from-blue-900 to-purple-900 text-white p-4 w-64">
       <h2 className="text-xl font-bold mb-4">導航</h2>
       <ul>
         <li>
-          <Link
-            to="/"
+          <button
+            onClick={() => handleClick("/")}
             className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/" ? "bg-blue-700" : ""
+              location.pathname === "/" && !searchParams.get('route') ? "bg-blue-700" : ""
             }`}
           >
             首頁
-          </Link>
+          </button>
         </li>
         <li>
-          <Link
-            to="about"
+          <button
+            onClick={() => handleClick("about")}
             className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/about" ? "bg-blue-700" : ""
+              searchParams.get('route') === "about" ? "bg-blue-700" : ""
             }`}
           >
             關於
-          </Link>
+          </button>
         </li>
         <li>
-          <Link
-            to="services"
+          <button
+            onClick={() => handleClick("services")}
             className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/services" ? "bg-blue-700" : ""
+              searchParams.get('route') === "services" ? "bg-blue-700" : ""
             }`}
           >
             服務
-          </Link>
+          </button>
         </li>
         <li>
-          <Link
-            to="contact"
+          <button
+            onClick={() => handleClick("contact")}
             className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/contact" ? "bg-blue-700" : ""
+              searchParams.get('route') === "contact" ? "bg-blue-700" : ""
             }`}
           >
             聯絡
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>
