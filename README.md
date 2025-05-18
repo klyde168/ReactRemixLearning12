@@ -14,6 +14,9 @@
 第8天：Prisma與資料庫設置
 - 垂直導航顯示從公開API（例如JSONPlaceholder）獲取的資料。
 - **功能**：設置Prisma ORM，連接到SQLite資料庫，初始化用戶表。
+- **功能**：使用 execute_command 工具來執行 Prisma 命令
+- **指令**：npx prisma generate && npx prisma db push
+- **指令**：npx ts-node prisma/seed.ts
 - **AI提示詞**：在Remix專案中配置Prisma ORM，連接到SQLite資料庫，創建用戶表（包含id、name、email欄位）。提供prisma/schema.prisma與初始化腳本，確保與Remix整合並更新README.md。新增程式註解說明，使用標準的 JavaScript 註解格式。
 
 ## 相關檔案
@@ -21,4 +24,5 @@
 - `app/components/NavBar.tsx`：包含垂直導航選單的組件，實現動態生成連結和高亮功能。
 - `app/root.tsx`：應用程式主要入口，整合導航選單和內容區域。
 - `app/routes/_index.tsx`, `app/routes/about.tsx`, `app/routes/services.tsx`, `app/routes/contact.tsx`：各個路由頁面，顯示對應的內容。
-
+- `prisma/schema.prisma`：Prisma 模式文件，定義了資料庫結構，包括用戶表。
+- `prisma/seed.ts`：Prisma 種子腳本，用於初始化資料庫數據。
