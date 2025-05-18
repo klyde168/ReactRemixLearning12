@@ -103,6 +103,17 @@ export default function NavBar() {
             創建用戶
           </Link>
         </li>
+        {/* 用戶清單導航選項，當前路徑為用戶清單頁面時高亮顯示 */}
+        <li>
+          <Link
+            to="/users/list"
+            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
+              location.pathname === "/users" ? "bg-blue-700" : ""
+            }`}
+          >
+            用戶清單
+          </Link>
+        </li>
       </ul>
     </nav>
   );

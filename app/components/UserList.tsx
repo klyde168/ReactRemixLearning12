@@ -1,30 +1,44 @@
-import { useLoaderData } from "@remix-run/react";
-import type { LoaderData, User } from "~/routes/api";
+import React from "react";
+import { User } from "@prisma/client";
 
 /**
- * 使用者清單組件
- * 這個組件負責顯示從 API 獲取的使用者清單。
- * 如果有錯誤訊息，會顯示錯誤訊息。
+ * 用戶清單組件
+ * 這個組件負責顯示從資料庫讀取的用戶清單。
+ * 表單使用Tailwind CSS進行美化，呈現科技風格。
  */
-export default function UserList() {
-  const { users, error } = useLoaderData<LoaderData>();
 
-  if (error) {
-    return <div className="text-red-500 p-4">錯誤：{error}</div>;
-  }
+interface UserListProps {
+  users: User[];
+}
 
+export default function UserList({ users }: UserListProps) {
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 max-w-md w-full">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">使用者清單</h2>
-      <ul className="space-y-4">
-        {users.map((user: User) => (
-          <li key={user.id} className="border-b pb-2">
-            <p className="text-lg font-semibold text-gray-700">{user.name}</p>
-            <p className="text-sm text-gray-500">電子郵件：{user.email}</p>
-            <p className="text-sm text-gray-500">電話：{user.phone}</p>
-          </li>
-        ))}
-      </ul>
+    // 用戶清單容器，使用深灰色背景、陰影和圓角設計，營造科技風
+    <div className="bg-gray-800 shadow-md rounded p-6">
+      {!users || users.length === 0 ? (
+        // 如果沒有用戶資料，顯示提示訊息
+        <p className="text-white text-center">目前沒有用戶資料</p>
+      ) : (
+        // 如果有用戶資料，顯示用戶清單
+        <table className="min-w-full divide-y divide-gray-600">
+          <thead className="bg-gray-700">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-blue-300 uppercase tracking-wider">ID</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-blue-300 uppercase tracking-wider">名稱</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-blue-300 uppercase tracking-wider">電子郵件</th>
+            </tr>
+          </thead>
+          <tbody className="bg-gray-800 divide-y divide-gray-600">
+            {users.map((user) => (
+              <tr key={user.id} className="hover:bg-gray-700">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{user.id}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{user.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{user.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
