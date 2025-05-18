@@ -1,10 +1,16 @@
 # Remix 專案
 第3天：動態導航連結
 - 這是一個使用 Remix 框架建立的網頁應用程式，包含了動態垂直導航選單和其他功能。
-第3天：API基礎與資料獲取
+
+第4天：API基礎與資料獲取
 - 垂直導航顯示從公開API（例如JSONPlaceholder）獲取的資料。
 
 ## 功能說明
+
+### 第3天：動態導航連結
+
+- **功能**：垂直導航動態生成，根據路由自動高亮當前頁面。
+- **AI提示詞**：修改Remix專案的垂直導航，使其根據路由動態生成連結，並高亮當前頁面。提供app/components/NavBar.tsx與相關路由檔案，使用React狀態管理與Tailwind CSS實現高亮效果。新增程式註解說明，使用標準的 JavaScript 註解格式。
 
 ### 垂直導航選單
 
@@ -25,6 +31,8 @@
 - `app/routes/_index.tsx`, `app/routes/about.tsx`, `app/routes/services.tsx`, `app/routes/contact.tsx`：各個路由頁面，顯示對應的內容。
 
 ## AI 提示詞
-
+### 第3天：動態導航連結
 - 修改 Remix 專案的垂直導航，使其根據路由動態生成連結，並高亮當前頁面。提供 `app/components/NavBar.tsx` 與相關路由檔案，使用 React 狀態管理與 Tailwind CSS 實現高亮效果。新增程式註解說明，使用標準的 JavaScript 註解格式。
+
+### 第7天：API基礎與資料獲取
 - 為 Remix 專案中的所有路由和組件檔案新增標準的 JavaScript 註解說明，確保每個檔案都有頂層函數或組件的說明註解，並更新 README.md 中的 AI 提示詞部分。
