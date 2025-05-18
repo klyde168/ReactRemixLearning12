@@ -13,7 +13,3 @@
 - **功能**：右欄顯示用戶清單，從資料庫讀取。
 - **AI提示詞**：在Remix專案的NavBar.tsx新增連結，右欄顯示從SQLite資料庫讀取的用戶清單，透過Prisma查詢。提供app/routes/users.tsx與app/components/UserList.tsx，使用Tailwind CSS美化清單顯示。新增程式註解說明，使用標準的 JavaScript 註解格式
 
-## 第11天：用戶資料CRUD - 創建與導航
-- **功能**：創建用戶後導航至用戶列表頁面。
-- **檔案**：app/components/CreateUser.tsx
-- **說明**：在 CreateUser 組件中，當用戶成功創建後，透過 useNavigate 鉤子導航至 '/users/list' 頁面。
