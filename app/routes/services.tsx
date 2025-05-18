@@ -1,14 +1,11 @@
-import type { MetaFunction } from "@remix-run/node";
-
-export const meta: MetaFunction = () => {
-  return [{ title: "Services" }];
-};
-
+/**
+ * Services 頁面，顯示我們提供的服務
+ */
 export default function Services() {
   return (
-    <div className="flex-1 p-4 bg-gray-800 text-white">
-      <h1 className="text-3xl font-bold mb-6">服務</h1>
-      <p>這是服務頁面。</p>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 className="text-3xl font-bold">我們的服務</h1>
+      <p className="mt-4 text-lg">這裡是我們的服務頁面，介紹我們提供的各種服務。</p>
     </div>
   );
 }

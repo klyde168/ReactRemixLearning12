@@ -1,103 +1,39 @@
-import { Link, useLocation, useNavigate, useSearchParams } from "@remix-run/react";
+import { Link } from "@remix-run/react";
+import { useLocation } from "@remix-run/react";
 
 export default function NavBar() {
   const location = useLocation();
+  const routes = [
+    { path: "/", name: "首頁" },
+    { path: "/about", name: "關於" },
+    { path: "/services", name: "服務" },
+    { path: "/contact", name: "聯絡" },
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    /* 導航欄元件，使用漸層背景色從藍色到紫色，設置為白色文字和固定寬度 */
-    <nav className="bg-gradient-to-r from-blue-900 to-purple-900 text-white p-4 w-64">
-      {/* 導航欄標題 */}
-      <h2 className="text-xl font-bold mb-4">導航</h2>
-      {/* 導航選項清單 */}
-      <ul>
-        {/* 首頁導航選項，當前路徑為首頁時高亮顯示 */}
-        <li>
-          <Link
-            to="/"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/" ? "bg-blue-700" : ""
-            }`}
+    <nav className="w-64 bg-gray-800 text-white h-full fixed top-0 left-0 flex flex-col shadow-lg">
+      <div className="p-5 border-b border-gray-700">
+        <h1 className="text-2xl font-bold">導航選單</h1>
+      </div>
+      <ul className="flex flex-col mt-4">
+        {routes.map((route) => (
+          <li
+            key={route.path}
+            className={`px-5 py-3 ${
+              isActive(route.path) ? "bg-gray-700" : "hover:bg-gray-700"
+            } transition-colors`}
           >
-            首頁
-          </Link>
-        </li>
-        {/* 關於導航選項，當前路徑為關於頁面時高亮顯示 */}
-        <li>
-          <Link
-            to="/about"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/about" ? "bg-blue-700" : ""
-            }`}
-          >
-            關於
-          </Link>
-        </li>
-        {/* 服務導航選項，當前路徑為服務頁面時高亮顯示 */}
-        <li>
-          <Link
-            to="/services"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/services" ? "bg-blue-700" : ""
-            }`}
-          >
-            服務
-          </Link>
-        </li>
-        {/* 聯絡導航選項，當前路徑為聯絡頁面時高亮顯示 */}
-        <li>
-          <Link
-            to="/contact"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/contact" ? "bg-blue-700" : ""
-            }`}
-          >
-            聯絡
-          </Link>
-        </li>
-        {/* 表單導航選項，當前路徑為表單頁面時高亮顯示 */}
-        <li>
-          <Link
-            to="/form"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/form" ? "bg-blue-700" : ""
-            }`}
-          >
-            表單
-          </Link>
-        </li>
-        {/* API 資料導航選項，當前路徑為 API 頁面時高亮顯示 */}
-        <li>
-          <Link
-            to="/api"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/api" ? "bg-blue-700" : ""
-            }`}
-          >
-            API 資料
-          </Link>
-        </li>
-        {/* 資料庫導航選項，當前路徑為資料庫頁面時高亮顯示 */}
-        <li>
-          <Link
-            to="/database"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/database" ? "bg-blue-700" : ""
-            }`}
-          >
-            資料庫
-          </Link>
-        </li>
-        {/* 創建用戶導航選項，當前路徑為創建用戶頁面時高亮顯示 */}
-        <li>
-          <Link
-            to="/users/create"
-            className={`block py-2 px-4 rounded hover:bg-blue-700 ${
-              location.pathname === "/users/create" ? "bg-blue-700" : ""
-            }`}
-          >
-            創建用戶
-          </Link>
-        </li>
+            <Link
+              to={route.path}
+              className="block w-full text-white no-underline"
+              onClick={() => console.log(`Navigating to ${route.path}`)}
+            >
+              {route.name}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

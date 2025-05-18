@@ -1,14 +1,11 @@
-import type { MetaFunction } from "@remix-run/node";
-
-export const meta: MetaFunction = () => {
-  return [{ title: "Contact" }];
-};
-
+/**
+ * Contact 頁面，顯示聯絡資訊
+ */
 export default function Contact() {
   return (
-    <div className="flex-1 p-4 bg-gray-800 text-white">
-      <h1 className="text-3xl font-bold mb-6">聯絡</h1>
-      <p>這是聯絡頁面。</p>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 className="text-3xl font-bold">聯絡我們</h1>
+      <p className="mt-4 text-lg">這裡是聯絡我們頁面，提供我們的聯絡資訊和聯絡表單。</p>
     </div>
   );
 }
