@@ -39,10 +39,29 @@ export default function UserList({ users }: UserListProps) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm">
                   <Link
                     to={`/users/edit/${user.id}`}
-                    className="text-blue-400 hover:text-blue-300"
+                    className="text-blue-400 hover:text-blue-300 mr-2"
                   >
                     編輯
                   </Link>
+                  <form
+                    method="post"
+                    action="/users/list"
+                    className="inline"
+                    onSubmit={(e) => {
+                      if (!confirm('確定要刪除此用戶嗎？')) {
+                        e.preventDefault();
+                      }
+                    }}
+                  >
+                    <input type="hidden" name="_method" value="delete" />
+                    <input type="hidden" name="userId" value={user.id} />
+                    <button
+                      type="submit"
+                      className="text-red-400 hover:text-red-300"
+                    >
+                      刪除
+                    </button>
+                  </form>
                 </td>
               </tr>
             ))}

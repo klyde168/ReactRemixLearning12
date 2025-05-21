@@ -1,4 +1,4 @@
-import { LoaderFunction, json } from "@remix-run/node";
+import { LoaderFunction, json, ActionFunction, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { PrismaClient } from "@prisma/client";
 import UserList from "../components/UserList";
@@ -15,6 +15,21 @@ export const loader: LoaderFunction = async () => {
   // 從資料庫中獲取所有用戶資料
   const users = await prisma.user.findMany();
   return json({ users });
+};
+
+export const action: ActionFunction = async ({ request, params }) => {
+  if (request.method === "POST") {
+    const formData = await request.formData();
+    const method = formData.get("_method");
+    if (method === "delete") {
+      const userId = formData.get("userId");
+      if (userId) {
+        await prisma.user.delete({ where: { id: parseInt(userId.toString()) } });
+        return redirect("/users/list");
+      }
+    }
+  }
+  return json({ error: "Invalid request" }, { status: 400 });
 };
 
 export default function UsersRoute() {
