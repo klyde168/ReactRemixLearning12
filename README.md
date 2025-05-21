@@ -13,3 +13,17 @@
 - **功能**：右欄顯示用戶清單，從資料庫讀取。
 - **AI提示詞**：在Remix專案的NavBar.tsx新增連結，右欄顯示從SQLite資料庫讀取的用戶清單，透過Prisma查詢。提供app/routes/users.tsx與app/components/UserList.tsx，使用Tailwind CSS美化清單顯示。新增程式註解說明，使用標準的 JavaScript 註解格式
 
+## 第11天：用戶資料CRUD - 更新
+- **功能**：右欄實現用戶資料編輯功能。
+- **AI提示詞**：在Remix專案的右欄添加用戶編輯表單，透過Prisma更新SQLite資料庫中的用戶資料。提供app/routes/users/edit/$id.tsx
+
+
+## 其他 ##
+- **先安裝**
+- npm install @remix-run/dev 
+
+- **執行**
+- npm run dev
+
+- **生成Prisma Client**
+- npx prisma generate
